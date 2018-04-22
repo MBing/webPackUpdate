@@ -5,7 +5,8 @@ const config = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: 'dist/',
 	},
 	module: {
 		rules: [
@@ -19,6 +20,18 @@ const config = {
 				}),
 				test: /\.css$/,
 			},
+			{
+				test: /\.(jpe?g|png|gif|svg)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 40000, // size in bytes, include or exclude in bundle.js output
+						}
+					},
+					'image-webpack-loader', // order matters, this (last index) is loaded first
+				],
+			}
 		]
 	},
 	plugins: [
