@@ -6,7 +6,7 @@ const config = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: 'dist/',
+		publicPath: 'dist/', // used by any loader for output url if necessary, like url-loader in this case
 	},
 	module: {
 		rules: [
