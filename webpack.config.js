@@ -11,14 +11,14 @@ const config = {
 	module: {
 		rules: [
 			{
-				use: 'babel-loader',
 				test: /\.js$/,
+				use: 'babel-loader',
 			},
 			{
+				test: /\.css$/,
 				loader: ExtractTextPlugin.extract({
 					loader: 'css-loader',
 				}),
-				test: /\.css$/,
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg)$/,
