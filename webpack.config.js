@@ -34,6 +34,8 @@ const config = {
 			}
 		]
 	},
+	// plugins are like loaders, but they are more looking at total sum of input/output of webpack
+  	// loaders focus more on working with individual files
 	plugins: [
 		new ExtractTextPlugin('style.css')
 	]
