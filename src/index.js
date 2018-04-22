@@ -1,6 +1,13 @@
-import sum from './sum';
-import './image-viewer'; // just needs to run some code, no export/import needed here
+const button = document.createElement('button');
+button.innerText = 'Click me';
 
-const total = sum(10, 5);
+button.onclick = () => {
+	// System is a special (promise) module from ES6 spec. This will import all dependencies of the file you import as well!
+	// used for code splitting
+	System.import('./image-viewer')
+			.then(module => {
+				module.default()
+			});
+};
 
-console.log(total);
+document.body.appendChild(button);
